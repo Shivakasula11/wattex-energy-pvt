@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  scroll-behavior: smooth;
+  background-color: #ffffff;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+.gradient-hero {
+  background: linear-gradient(135deg, rgba(30, 27, 75, 0.95) 0%, rgba(244, 63, 94, 0.8) 100%);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.blog-content-styles h3 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: #1e1b4b;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.blog-content-styles p {
+  margin-bottom: 1.5rem;
+}
+
+/* Custom Range Slider Styling */
+input[type=range].accent-solar-primary::-webkit-slider-runnable-track {
+  background: #f1f5f9;
+  height: 8px;
+  border-radius: 999px;
+}
+
+input[type=range].accent-solar-primary::-webkit-slider-thumb {
+  background: #f43f5e;
+  height: 20px;
+  width: 20px;
+  margin-top: -6px;
+}
