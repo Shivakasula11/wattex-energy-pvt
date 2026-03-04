@@ -135,7 +135,7 @@ const OffGridSolar = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
             {[
               { icon: 'fa-mountain-sun', title: 'Remote Homes', desc: 'Farmhouses, hill stations, islands, and rural areas with no grid access or unreliable power supply.', img: 'https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&q=80&w=600', color: 'from-rose-600' },
-              { icon: 'fa-tower-cell', title: 'Telecom Towers', desc: 'Cell towers, relay stations, and communication infrastructure in remote locations across rural India.', img: 'https://images.unsplash.com/photo-1548610762-7c6abc9d6ad3?auto=format&fit=crop&q=80&w=600', color: 'from-amber-600' },
+              { icon: 'fa-tower-cell', title: 'Telecom Towers', desc: 'Cell towers, relay stations, and communication infrastructure in remote locations across rural India.', img: 'https://media.istockphoto.com/id/1403259123/photo/solar-panels-in-a-bedouin-village-in-sinai-desert-egypt-renewable-energy.jpg?s=612x612&w=0&k=20&c=28ZCWiAoGf2iXF2P5pDJC_yZQ4oEL102Mni91_Sc7P8=', color: 'from-amber-600' },
               { icon: 'fa-campground', title: 'Eco Resorts', desc: 'Luxury stays in forests, mountains, and beaches — 5-star comfort without any environmental impact.', img: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&q=80&w=600', color: 'from-emerald-600' },
               { icon: 'fa-tractor', title: 'Agriculture', desc: 'Solar pumps, drip irrigation, cold storage for perishables, and dairy processing units in villages.', img: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=600', color: 'from-sky-600' },
             ].map((item, i) => (
@@ -307,7 +307,7 @@ const OffGridSolar = () => {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { title: 'Remote Infrastructure', desc: 'Powering telecommunication towers, weather stations, and research outposts in extreme climates.', img: 'https://images.unsplash.com/photo-1548610762-7c6abc9d6ad3?auto=format&fit=crop&q=80&w=800' },
+              { title: 'Remote Infrastructure', desc: 'Powering telecommunication towers, weather stations, and research outposts in extreme climates.', img: 'https://images.unsplash.com/photo-1763809676935-921c5821f908?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8UmVtb3RlJTIwSW5mcmFzdHJ1Y3R1cmUlMjBzb2xhcnxlbnwwfHwwfHx8MA%3D%3D' },
               { title: 'Agricultural Autonomy', desc: 'Automated irrigation, livestock monitoring, and processing facilities far from utility lines.', img: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=800' },
               { title: 'Luxury Eco-Resorts', desc: 'Providing 5-star energy comfort in pristine, untouched natural locations without environmental impact.', img: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&q=80&w=800' },
             ].map((item, i) => (

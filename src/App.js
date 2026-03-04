@@ -34,7 +34,7 @@ function App() {
          
            <Route path="/projects" element={<OurProjects />} />
           {/* Fallback to Home */}
-          <Route path="*" element={<Home />} />
+          {/* <Route path="*" element={<Home />} /> */}
         </Route>
       </Routes>
     </BrowserRouter>

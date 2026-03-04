@@ -234,65 +234,109 @@ const CommercialSolar = () => {
               </div>
             </div>
 
-            {/* Visual Chart */}
+            {/* Visual — Premium ROI Dashboard */}
+            <style>{`
+              @keyframes ringDraw { from { stroke-dashoffset: 690; } to { stroke-dashoffset: 0; } }
+              @keyframes ringDrawSmall { from { stroke-dashoffset: 553; } to { stroke-dashoffset: 0; } }
+              @keyframes floatUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+              @keyframes floatBadge { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+              @keyframes scaleIn { from { opacity: 0; transform: scale(0.7); } to { opacity: 1; transform: scale(1); } }
+              @keyframes glowPulse { 0%,100% { opacity: 0.1; } 50% { opacity: 0.25; } }
+              @keyframes slideRight { from { opacity: 0; transform: translateX(-16px); } to { opacity: 1; transform: translateX(0); } }
+              .ring-anim { animation: ringDraw 2s ease-out both; }
+              .ring-anim-small { animation: ringDrawSmall 2s ease-out 0.4s both; }
+              .float-up-1 { animation: floatUp 0.6s ease-out 0.8s both; }
+              .float-up-2 { animation: floatUp 0.6s ease-out 1s both; }
+              .float-up-3 { animation: floatUp 0.6s ease-out 1.2s both; }
+              .float-badge { animation: floatBadge 4s ease-in-out infinite; }
+              .float-badge-2 { animation: floatBadge 4s ease-in-out 1s infinite; }
+              .float-badge-3 { animation: floatBadge 4s ease-in-out 2s infinite; }
+              .scale-in-badge { animation: scaleIn 0.5s ease-out 1.4s both; }
+              .center-anim { animation: floatUp 0.8s ease-out 0.6s both; }
+              .glow-pulse { animation: glowPulse 3s ease-in-out infinite; }
+            `}</style>
             <div className="relative">
               <div className="bg-solar-deep rounded-[3rem] p-8 lg:p-12 shadow-2xl overflow-hidden relative">
-                {/* Background grid lines */}
-                <div className="absolute inset-x-8 lg:inset-x-12 top-20 bottom-24 flex flex-col justify-between pointer-events-none">
-                  {[0, 1, 2, 3, 4].map((_, i) => (
-                    <div key={i} className="w-full h-px bg-white/5"></div>
-                  ))}
-                </div>
+                <div className="absolute -top-20 -right-20 w-60 h-60 bg-solar-primary/10 blur-[80px] rounded-full glow-pulse"></div>
+                <div className="absolute -bottom-16 -left-16 w-40 h-40 bg-sky-500/8 blur-[60px] rounded-full"></div>
 
-                <div className="flex items-center justify-between mb-10">
+                <div className="flex items-center justify-between mb-10 relative z-10">
                   <div>
-                    <div className="text-[10px] font-black uppercase tracking-widest text-white/30 mb-1">Cumulative Savings Over Time</div>
-                    <div className="text-white font-black text-lg">100kW Commercial System</div>
+                    <div className="text-[10px] font-black uppercase tracking-widest text-white/30 mb-1">Financial Performance</div>
+                    <div className="text-white font-extrabold font-heading text-xl">100kW Commercial System</div>
                   </div>
-                  <div className="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-xl">
-                    <div className="w-2.5 h-2.5 bg-solar-primary rounded-sm"></div>
-                    <span className="text-[10px] font-bold text-white/40">Savings (₹)</span>
+                  <div className="flex items-center gap-1.5 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1.5 rounded-full">
+                    <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse"></span>
+                    <span className="text-[10px] font-bold text-emerald-400">Live Tracking</span>
                   </div>
                 </div>
 
-                <div className="flex items-end gap-2 lg:gap-4" style={{ height: '280px' }}>
-                  {[
-                    { h: 8, label: 'Y1', val: '₹12L' },
-                    { h: 18, label: 'Y3', val: '₹36L' },
-                    { h: 30, label: 'Y5', val: '₹60L' },
-                    { h: 45, label: 'Y8', val: '₹96L' },
-                    { h: 60, label: 'Y10', val: '₹1.2Cr' },
-                    { h: 75, label: 'Y15', val: '₹1.8Cr' },
-                    { h: 88, label: 'Y20', val: '₹2.5Cr' },
-                    { h: 100, label: 'Y25', val: '₹3.2Cr' },
-                  ].map((bar, i) => (
-                    <div key={i} className="flex-1 flex flex-col items-center group/bar cursor-pointer">
-                      {/* Value label */}
-                      <div className="text-[9px] font-black text-solar-primary mb-2 opacity-0 group-hover/bar:opacity-100 transition-all duration-300 -translate-y-1 group-hover/bar:translate-y-0 whitespace-nowrap">
-                        {bar.val}
-                      </div>
-                      {/* Bar */}
-                      <div className="w-full relative flex-shrink-0 rounded-t-lg overflow-hidden group-hover/bar:scale-x-110 transition-transform duration-300" style={{ height: `${bar.h}%` }}>
-                        <div className="absolute inset-0 bg-gradient-to-t from-solar-primary via-solar-primary/80 to-solar-primary/40"></div>
-                        <div className="absolute inset-0 bg-gradient-to-t from-rose-500 via-rose-400 to-rose-300 opacity-0 group-hover/bar:opacity-100 transition-opacity duration-300"></div>
-                        {/* Shine effect */}
-                        <div className="absolute top-0 left-0 right-0 h-4 bg-white/10 rounded-t-lg"></div>
-                      </div>
-                      {/* Year label */}
-                      <div className="text-[10px] font-bold text-white/30 mt-3 group-hover/bar:text-white/70 transition-colors">{bar.label}</div>
-                    </div>
-                  ))}
+                <div className="relative flex items-center justify-center py-6">
+                  <svg width="260" height="260" viewBox="0 0 260 260" className="transform -rotate-90">
+                    <circle cx="130" cy="130" r="110" fill="none" stroke="rgba(255,255,255,0.04)" strokeWidth="16" />
+                    <circle cx="130" cy="130" r="110" fill="none" stroke="url(#savingsGrad)" strokeWidth="16" strokeLinecap="round" className="ring-anim" strokeDasharray={String(2 * Math.PI * 110 * 0.86) + ' ' + String(2 * Math.PI * 110 * 0.14)} />
+                    <circle cx="130" cy="130" r="88" fill="none" stroke="rgba(255,255,255,0.03)" strokeWidth="10" />
+                    <circle cx="130" cy="130" r="88" fill="none" stroke="#10b981" strokeWidth="10" strokeLinecap="round" className="ring-anim-small" strokeDasharray={String(2 * Math.PI * 88 * 0.14) + ' ' + String(2 * Math.PI * 88 * 0.86)} />
+                    <defs>
+                      <linearGradient id="savingsGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stopColor="#f43f5e" />
+                        <stop offset="50%" stopColor="#fb7185" />
+                        <stop offset="100%" stopColor="#f43f5e" />
+                      </linearGradient>
+                    </defs>
+                  </svg>
+
+                  <div className="absolute inset-0 flex flex-col items-center justify-center text-center center-anim">
+                    <div className="text-[10px] font-bold uppercase tracking-widest text-white/30 mb-1">Total Returns</div>
+                    <div className="text-5xl font-black text-white tracking-tight leading-none mb-1">&#8377;3.2<span className="text-2xl text-white/60 ml-1">Cr</span></div>
+                    <div className="text-[10px] font-bold text-solar-primary">Over 25 Years</div>
+                  </div>
+
+                  <div className="absolute top-2 right-8 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl px-4 py-3 text-center float-up-1 float-badge">
+                    <div className="text-lg font-black text-white leading-none">&#8377;12L</div>
+                    <div className="text-[8px] font-bold text-white/30 uppercase tracking-wider mt-1">Per Year</div>
+                  </div>
+                  <div className="absolute bottom-2 left-4 bg-emerald-500/10 border border-emerald-500/20 rounded-2xl px-4 py-3 text-center float-up-2 float-badge-2">
+                    <div className="text-lg font-black text-emerald-400 leading-none">3.5 Yr</div>
+                    <div className="text-[8px] font-bold text-emerald-400/50 uppercase tracking-wider mt-1">Payback</div>
+                  </div>
+                  <div className="absolute bottom-2 right-4 bg-sky-500/10 border border-sky-500/20 rounded-2xl px-4 py-3 text-center float-up-3 float-badge-3">
+                    <div className="text-lg font-black text-sky-400 leading-none">125T</div>
+                    <div className="text-[8px] font-bold text-sky-400/50 uppercase tracking-wider mt-1">CO2/Year</div>
+                  </div>
                 </div>
 
-                {/* Bottom border accent */}
-                <div className="mt-6 pt-5 border-t border-white/10 flex justify-between items-center">
-                  <div className="text-[10px] text-white/30 font-medium">Investment recovery by <span className="text-solar-primary font-black">Year 3.5</span></div>
-                  <div className="text-[10px] text-white/30 font-medium">Total lifetime: <span className="text-white font-black">25 Years</span></div>
+                <div className="mt-6 pt-6 border-t border-white/5 relative z-10">
+                  <div className="text-[9px] font-bold uppercase tracking-widest text-white/20 mb-4">Savings Milestones</div>
+                  <div className="flex gap-3">
+                    {[
+                      { yr: 'Y1', amt: '₹12L', done: true },
+                      { yr: 'Y5', amt: '₹60L', done: true },
+                      { yr: 'Y10', amt: '₹1.2Cr', done: true },
+                      { yr: 'Y15', amt: '₹1.8Cr', done: false },
+                      { yr: 'Y25', amt: '₹3.2Cr', done: false },
+                    ].map((m, i) => (
+                      <div key={i} className={`flex-1 rounded-xl p-3 text-center border ${m.done ? 'bg-solar-primary/5 border-solar-primary/15' : 'bg-white/[0.02] border-white/5'}`}>
+                        <div className={`text-sm font-black ${m.done ? 'text-solar-primary' : 'text-white/40'}`}>{m.amt}</div>
+                        <div className={`text-[8px] font-bold uppercase tracking-wider mt-0.5 ${m.done ? 'text-solar-primary/50' : 'text-white/20'}`}>{m.yr}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="mt-5 flex items-center gap-6">
+                  <div className="flex items-center gap-2">
+                    <div className="w-3 h-3 rounded-full bg-solar-primary"></div>
+                    <span className="text-[10px] font-bold text-white/30">Cumulative Savings</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-3 h-3 rounded-full bg-emerald-500"></div>
+                    <span className="text-[10px] font-bold text-white/30">Payback Period</span>
+                  </div>
                 </div>
               </div>
 
-              {/* 26x Badge */}
-              <div className="absolute -bottom-6 -right-6 bg-solar-primary p-7 rounded-[2rem] shadow-2xl shadow-rose-500/30 hidden lg:block">
+              <div className="absolute -bottom-6 -right-6 bg-solar-primary p-7 rounded-[2rem] shadow-2xl shadow-rose-500/30 hidden lg:block scale-in-badge">
                 <div className="text-3xl font-black text-white mb-1">26x</div>
                 <p className="text-white/70 font-bold uppercase tracking-widest text-[8px]">Return on<br />Investment</p>
               </div>

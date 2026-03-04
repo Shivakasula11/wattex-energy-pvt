@@ -182,7 +182,7 @@ const UtilityScaleSolar = () => (
           </div>
           <div className="grid grid-cols-2 gap-4">
             <img src="https://images.unsplash.com/photo-1548337138-e87d889cc369?auto=format&fit=crop&q=80&w=600" className="rounded-3xl shadow-2xl aspect-[3/4] object-cover mt-12" alt="Battery Storage" />
-            <img src="https://images.unsplash.com/photo-1569000119348-199333730aa3?auto=format&fit=crop&q=80&w=600" className="rounded-3xl shadow-2xl aspect-[3/4] object-cover" alt="Grid Infrastructure" />
+            <img src="https://images.unsplash.com/photo-1658298775754-5839ffd434cc?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cGhvdG92b2x0YWljfGVufDB8fDB8fHww" className="rounded-3xl shadow-2xl aspect-[3/4] object-cover" alt="Grid Infrastructure" />
           </div>
         </div>
       </div>
